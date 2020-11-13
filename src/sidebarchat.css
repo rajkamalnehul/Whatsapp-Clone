@@ -1,0 +1,32 @@
+/** @format */
+
+.sidebarChat {
+  display: flex;
+
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f0f0;
+}
+
+.sidebarChat:hover {
+  background-color: #ebebeb;
+}
+.rooms_info {
+  width: 100%;
+  height: 100%;
+  margin-left: 15px;
+  padding: 5px;
+}
+
+.rooms_info > span {
+  font-size: 22px;
+
+  margin-top: 5px;
+}
+.rooms_info > p {
+  color: gray;
+}
+.sidebarChat > .MuiAvatar-root {
+  height: 61px;
+  width: 61px;
+}

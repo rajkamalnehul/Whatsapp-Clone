@@ -1,0 +1,134 @@
+/** @format */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.35;
+}
+.sidebar_container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sidebar_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid lightgrey;
+}
+.sidebar_header > .MuiAvatar-root {
+  height: 51px;
+  width: 51px;
+}
+
+.sidebar_headerRight {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 10vw;
+}
+.sidebar_headerRight > .MuiIconButton-root {
+  color: rgba(151, 151, 151, 0.925) !important;
+}
+
+.sidebar_search {
+  display: flex;
+  align-items: center;
+  background-color: #f6f6f6;
+  height: 39px;
+  padding: 10px;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+.search_container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  width: 100%;
+  height: 39px;
+  border-radius: 20px;
+}
+.search_container > input {
+  border: none;
+  margin-left: 10px;
+  outline-color: white;
+}
+
+.search_container > .MuiSvgIcon-root {
+  color: grey;
+  padding: 10px;
+}
+.sidebar_chat {
+  background-color: white;
+  flex: 1;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 5px;
+}
+
+.slider {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  flex: 1;
+  width: 482px;
+}
+.slider_header {
+  height: 140px;
+  background-color: rgba(0, 191, 165);
+}
+.slider_headerContent {
+  display: flex;
+  align-items: center;
+  margin-top: 70px;
+  padding: 10px;
+  color: white;
+  font-size: 23px;
+  font-weight: bold;
+}
+.slider_headerContent > .MuiIconButton-root {
+  color: white !important;
+  margin-right: 20px;
+}
+
+.add_newRoom {
+  display: flex;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f0f0;
+}
+
+.groupIcon {
+  display: flex;
+  align-items: center;
+  background-color: rgb(30, 150, 134);
+  border-radius: 50px;
+  height: 61px;
+  width: 61px;
+}
+
+.add_newRoom > .groupIcon > .MuiSvgIcon-root {
+  font-size: xx-large;
+  color: white;
+  margin-left: 10px;
+}
+.add_newRoom > input {
+  border: none;
+  margin-left: 10px;
+  outline-color: white;
+  font-size: 16px;
+}
