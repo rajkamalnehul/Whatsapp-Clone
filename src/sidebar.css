@@ -39,6 +39,7 @@
   height: 39px;
   padding: 10px;
   border-bottom: 2px solid #e6e6e6;
+  border-right: 1px solid lightgrey;
 }
 
 .search_container {
@@ -63,6 +64,7 @@
   background-color: white;
   flex: 1;
   overflow-y: scroll;
+  border-right: 1px solid lightgrey;
 }
 
 ::-webkit-scrollbar {

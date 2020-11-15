@@ -30,3 +30,8 @@
   height: 61px;
   width: 61px;
 }
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}

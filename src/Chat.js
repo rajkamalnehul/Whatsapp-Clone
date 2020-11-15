@@ -4,21 +4,42 @@ import './Chat.css';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {InsertEmoticon, SearchOutlined} from '@material-ui/icons' ;
 import SendIcon from '@material-ui/icons/Send';
+import {useParams} from 'react-router-dom';
+import db from './firebase';
 
 
 function Chat() {
     const [Seed, setSeed]= useState("");
+    const [input, setInput]= useState("");
+    const {roomId} = useParams();
+    const [roomName, setRoomName]= useState("");
 
     useEffect(() => {
-       setSeed(Math.floor(Math.random() * 1000)); console.log(Seed);
-    }, []);
+       setSeed(Math.floor(Math.random() * 100)); 
+    }, [roomId]);
+
+    useEffect(() => {
+      if (roomId){
+          db.collection("rooms").doc(roomId).onSnapshot(snapshot => {
+              setRoomName(snapshot.data().name)
+           } )
+      }
+      
+     }, [roomId]);
+ 
+
+    const sendMessage = (e)=>{
+        e.preventDefault();
+        console.log(input);
+        setInput("");
+    }
     return (
        
         <div className="chat">
             <div className="chat_header">
                 <Avatar src={`https://picsum.photos/id/${Seed}/200/200`}/>
                 <div className="chat_headerInfo">
-                    <h3>Room Name</h3>
+                    <h3>{roomName}</h3>
                     <p>Last seen...</p>
                 </div>
                 <div className="char_headerRight">
@@ -37,8 +58,8 @@ function Chat() {
             <div className="chat_footer">
                 <InsertEmoticon/>
                 <form>
-                    <input type="text" placeholder="Type a message"/>
-                    <button><SendIcon/></button>
+                    <input value={input} onChange={e=>setInput(e.target.value)} type="text" placeholder="Type a message"/>
+                    <button onClick={sendMessage} type="submit"><SendIcon/></button>
                 </form>
             </div>
             
@@ -49,4 +70,4 @@ function Chat() {
     )
 }
 
-export default Chat
+export default Chat;
