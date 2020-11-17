@@ -9,13 +9,17 @@
 }
 
 .login_container {
+  background-image: url("https://www.setaswall.com/wp-content/uploads/2019/08/Whatsapp-Wallpaper-112.jpg");
+  background-position: center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   background-color: rgb(255, 255, 255);
   padding: 70px;
   text-align: center;
   border-radius: 10px;
-  box-shadow: 1.5px 2.5px 3.5px #dedede, -1.5px -2.5px 3.5px #dedede;
+  box-shadow: 3px 3px 6px #ffffff, -3px -3px 6px #ffffff;
+  color: #ffffff;
 }
 
 .login_container > img {
@@ -26,7 +30,7 @@
 
 .login_container > button {
   margin-top: 40px;
-  background-color: #0a8d48;
+  background-color: #45cc54;
   color: rgb(255, 255, 255);
 }
 .login_container > button:hover {
