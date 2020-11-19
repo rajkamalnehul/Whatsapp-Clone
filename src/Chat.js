@@ -10,6 +10,9 @@ import { useParams } from "react-router-dom";
 import db from "./firebase";
 import { useStateValue } from "./StateProvider";
 import firebase from "firebase";
+import Picker from "emoji-picker-react";
+import Popper from "@material-ui/core/Popper";
+//import Paper from "@material-ui/core/Paper";
 
 function Chat() {
   const [Seed, setSeed] = useState("");
@@ -18,6 +21,21 @@ function Chat() {
   const [roomName, setRoomName] = useState("");
   const [messages, setMessages] = useState([]);
   const [{ user }, dispatch] = useStateValue();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [chosenEmoji, setChosenEmoji] = useState("");
+
+  const onEmojiClick = (event, emojiObject) => {
+    setChosenEmoji(emojiObject.emoji);
+    console.log(chosenEmoji);
+    setInput(chosenEmoji);
+  };
+
+  const handleClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popper" : undefined;
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 100));
@@ -50,6 +68,7 @@ function Chat() {
     });
     setInput("");
   };
+
   return (
     <div className="chat">
       <div className="chat_header">
@@ -63,7 +82,7 @@ function Chat() {
             ).toUTCString()}
           </p>
         </div>
-        <div className="char_headerRight">
+        <div className="chat_headerRight">
           <IconButton>
             {" "}
             <SearchOutlined />
@@ -98,7 +117,18 @@ function Chat() {
         ))}
       </div>
       <div className="chat_footer">
-        <InsertEmoticon />
+        <InsertEmoticon
+          aria-describedby={id}
+          type="button"
+          onClick={handleClick}
+        />
+
+        <Popper id={id} open={open} anchorEl={anchorEl} placement={"top-start"}>
+          <div>
+            <Picker onEmojiClick={onEmojiClick} />
+          </div>
+        </Popper>
+
         <form>
           <input
             value={input}
